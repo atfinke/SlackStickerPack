@@ -111,8 +111,6 @@ class SlackEmojiFileManager {
             completion(created ? .new : .reloaded)
         }
 
-        print(workspaceEmojiResponse.emojiResponse)
-
         for emojiName in workspaceEmojiResponse.emojiResponse.emoji.keys {
             guard let emojiURLString = workspaceEmojiResponse.emojiResponse.emoji[emojiName],
                 !emojiURLString.contains("alias:"),
@@ -153,44 +151,7 @@ class SlackEmojiFileManager {
 
     func process(data: Data, isGIF: Bool) -> Data {
         if isGIF {
-            guard let source = CGImageSourceCreateWithData(data as CFData as CFData, nil) else {
-                fatalError()
-            }
-
-            let mutableData = NSMutableData()
-            let frameCount = CGImageSourceGetCount(source)
-            guard let destination = CGImageDestinationCreateWithData(mutableData as CFMutableData, kUTTypeGIF, frameCount, nil),
-                let sourceProperties = CGImageSourceCopyProperties(source, nil) else {
-                    fatalError()
-            }
-            CGImageDestinationSetProperties(destination, sourceProperties)
-
-            for imageIndex in 0..<frameCount {
-
-                guard let frameImage = CGImageSourceCreateImageAtIndex(source, imageIndex, nil),
-                    let frameProperties = CGImageSourceCopyPropertiesAtIndex(source, imageIndex, nil) else {
-                        continue
-                }
-
-                let newSize = CGSize(width: frameImage.width * 2, height: frameImage.height * 2)
-                let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-
-                // Actually do the resizing to the rect using the ImageContext stuff
-                UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-                UIImage(cgImage: frameImage).draw(in: rect)
-                let newImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-
-                guard let image = newImage?.cgImage else {
-                    fatalError()
-                }
-
-                CGImageDestinationAddImage(destination, image, frameProperties)
-            }
-            guard CGImageDestinationFinalize(destination) else {
-                fatalError()
-            }
-            return mutableData as Data
+            return data
         } else {
             guard let image = CIImage(data: data) else {
                 fatalError()
@@ -198,7 +159,7 @@ class SlackEmojiFileManager {
 
             let filter = CIFilter(name: "CILanczosScaleTransform")!
             filter.setValue(image, forKey: "inputImage")
-            filter.setValue(1.5, forKey: "inputScale")
+            filter.setValue(1.25, forKey: "inputScale")
             filter.setValue(1.0, forKey: "inputAspectRatio")
 
             guard let outputImage = filter.value(forKey: "outputImage") as? CIImage,

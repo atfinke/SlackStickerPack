@@ -22,7 +22,6 @@
 		14C4B132205E1A62004EC39E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B131205E1A62004EC39E /* Assets.xcassets */; };
 		14C4B136205E1A62004EC39E /* Message.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14C4B128205E1A62004EC39E /* Message.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14C4B13C205E1A82004EC39E /* SlackEmojiKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B0F5205E1652004EC39E /* SlackEmojiKit.framework */; };
-		14C4B13E205E2397004EC39E /* 50096a1020.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B13D205E2397004EC39E /* 50096a1020.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +120,6 @@
 		14C4B131205E1A62004EC39E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14C4B133205E1A62004EC39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C4B13B205E1A73004EC39E /* Message.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Message.entitlements; sourceTree = "<group>"; };
-		14C4B13D205E2397004EC39E /* 50096a1020.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 50096a1020.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +169,6 @@
 				14C4B123205E1967004EC39E /* SlackStickerPack.entitlements */,
 				14C4B0C8205E155F004EC39E /* AppDelegate.swift */,
 				14C4B0CA205E155F004EC39E /* ViewController.swift */,
-				14C4B13D205E2397004EC39E /* 50096a1020.gif */,
 				14C4B0CC205E155F004EC39E /* Main.storyboard */,
 				14C4B0CF205E155F004EC39E /* Assets.xcassets */,
 				14C4B0D1205E155F004EC39E /* LaunchScreen.storyboard */,
@@ -345,7 +342,6 @@
 			files = (
 				14C4B0D3205E155F004EC39E /* LaunchScreen.storyboard in Resources */,
 				14C4B0D0205E155F004EC39E /* Assets.xcassets in Resources */,
-				14C4B13E205E2397004EC39E /* 50096a1020.gif in Resources */,
 				14C4B0CE205E155F004EC39E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
