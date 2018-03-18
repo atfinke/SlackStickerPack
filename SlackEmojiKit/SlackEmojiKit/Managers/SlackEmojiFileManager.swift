@@ -10,14 +10,6 @@ import Foundation
 import CoreImage
 import MobileCoreServices
 
-extension FileManager {
-    func contents(of directory: URL) -> [URL] {
-        return (try? contentsOfDirectory(at: directory,
-                                         includingPropertiesForKeys: nil,
-                                         options: .skipsHiddenFiles)) ?? []
-    }
-}
-
 class SlackEmojiFileManager {
 
     // MARK: - Properties
@@ -25,18 +17,23 @@ class SlackEmojiFileManager {
     private let documentDirectory: URL
     private let fileManager = FileManager.default
 
-    private var savedEmojiDirectory: URL {
-        return documentDirectory.appendingPathComponent("SlackEmoji")
-    }
-
     private var defaults: UserDefaults {
         return UserDefaults(suiteName: "group.com.andrewfinke.test")!
+    }
+
+    internal var savedModelURL: URL {
+        return documentDirectory.appendingPathComponent("SlackEmoji.model")
+    }
+
+    private var savedEmojiDirectory: URL {
+        return documentDirectory.appendingPathComponent("SlackEmoji")
     }
 
     // MARK: - Initalization
 
     init() {
-        guard let directory = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.com.andrewfinke.test") else {
+        guard let directory = fileManager
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.andrewfinke.test") else {
             fatalError()
         }
         documentDirectory = directory
@@ -57,8 +54,8 @@ class SlackEmojiFileManager {
         }
     }
 
-    func createTeamEmojiDirectory(workspace: WorkspaceResponse) -> (directory: URL, created: Bool) {
-        let teamEmojiDirectory = savedEmojiDirectory.appendingPathComponent(workspace.team_id)
+    func createDirectory(for team: Team) -> URL {
+        let teamEmojiDirectory = savedEmojiDirectory.appendingPathComponent(team.teamID)
         let createdNewTeamDirectory = createDirectory(at: teamEmojiDirectory)
 
         if !createdNewTeamDirectory {
@@ -66,90 +63,72 @@ class SlackEmojiFileManager {
                 .forEach { try? fileManager.removeItem(at: $0) }
         }
 
-        return (teamEmojiDirectory, createdNewTeamDirectory)
+        return teamEmojiDirectory
     }
 
-    // MARK: - Fetch Emojis
-
-    func fetchSavedEmojis() -> [SlackTeamEmojis] {
-        guard let existingTeams = defaults.dictionary(forKey: "ExistingTeams") as? [String: String] else {
-            return []
-        }
-
-        return fileManager.contents(of: savedEmojiDirectory)
-            .flatMap { teamDirectory -> SlackTeamEmojis? in
-                guard let teamName = existingTeams[teamDirectory.lastPathComponent] else {
-                    return nil
-                }
-
-                let emojis = fileManager
-                    .contents(of: teamDirectory)
-                    .map { fileURL -> SlackEmoji in
-                        let name = fileURL.lastPathComponent.components(separatedBy: ".")[0]
-                        return SlackEmoji(name: name, url: fileURL)
-                }
-                return SlackTeamEmojis(teamName: teamName, emojis: emojis)
-        }
+    func remove(team: Team) {
+        let directory = savedEmojiDirectory.appendingPathComponent(team.teamID)
+        try? fileManager.removeItem(at: directory)
     }
 
     // MARK: - Save Emojis
 
-    func save(workspaceEmojiResponse: WorkspaceEmojiResponse, completion: @escaping ((SlackFetchEmojiResult) -> Void)) {
+    func download(emoji emojiResponse: EmojiResponse, for team: Team, completion: @escaping ((Workspace) -> Void)) {
         // Set up folder structure - Documents / SlackEmoji / [Team ID]
         createDirectory(at: savedEmojiDirectory)
+        let workspaceDirectory = createDirectory(for: team)
 
-        let (teamDirectory, created) = createTeamEmojiDirectory(workspace: workspaceEmojiResponse.workspace)
-
+        var workspaceEmojis = [SlackEmoji?]()
         let downloadQueue = OperationQueue()
         downloadQueue.maxConcurrentOperationCount = 10
 
         let finalOperation = BlockOperation {
-            var existingTeams = self.defaults.dictionary(forKey: "ExistingTeams") as? [String: String] ?? [:]
-            existingTeams[workspaceEmojiResponse.workspace.team_id] = workspaceEmojiResponse.workspace.team_name
-            self.defaults.set(existingTeams, forKey: "ExistingTeams")
-
-            completion(created ? .new : .reloaded)
+            let emojis = workspaceEmojis.flatMap({ $0 }).sorted(by: { $0.name < $1.name })
+            let workspace = Workspace(team: team, emojis: emojis)
+            completion(workspace)
         }
 
-        for emojiName in workspaceEmojiResponse.emojiResponse.emoji.keys {
-            guard let emojiURLString = workspaceEmojiResponse.emojiResponse.emoji[emojiName],
-                !emojiURLString.contains("alias:"),
-                let emojiRemoteURL = URL(string: emojiURLString) else {
-                    continue
-            }
+        let operations = emojiResponse.emoji.flatMap { (emojiName, emojiRemoteURLString) -> WKROperation? in
+            guard !emojiRemoteURLString.contains("alias:"),
+                let emojiRemoteURL = URL(string: emojiRemoteURLString) else { return nil }
 
             let operation = WKROperation()
             operation.addExecutionBlock {
                 let task = URLSession.shared.dataTask(with: emojiRemoteURL, completionHandler: { (data, _, _) in
-                    guard let data = data else {
-                        operation.state = .isFinished
-                        return
-                    }
-
                     let fileName = emojiName + "." + emojiRemoteURL.pathExtension
-                    let emojiLocalURL = teamDirectory.appendingPathComponent(fileName)
-                    do {
-                        // TODO: Resize
-                        try self.process(data: data,
-                                         isGIF: emojiRemoteURL.pathExtension == "gif")
-                            .write(to: emojiLocalURL)
-                    } catch {
-                        print("Error saving \(emojiName)")
-                    }
-
+                    let emojiLocalURL = workspaceDirectory.appendingPathComponent(fileName)
+                    let emoji = self.saveEmoji(with: data, named: fileName, to: emojiLocalURL, from: emojiRemoteURL)
+                    workspaceEmojis.append(emoji)
                     operation.state = .isFinished
                 })
                 task.resume()
             }
 
             finalOperation.addDependency(operation)
-            downloadQueue.addOperation(operation)
+            return operation
         }
 
+        downloadQueue.addOperations(operations, waitUntilFinished: false)
         downloadQueue.addOperation(finalOperation)
     }
 
-    func process(data: Data, isGIF: Bool) -> Data {
+    private func saveEmoji(with emojiData: Data?,
+                           named name: String,
+                           to localURL: URL,
+                           from sourceURL: URL) -> SlackEmoji? {
+
+        guard let data = emojiData else { return nil }
+        do {
+            let resizedImage =  self.process(data: data, isGIF: sourceURL.pathExtension == "gif")
+            try resizedImage.write(to: localURL)
+            return SlackEmoji(name: name, fileURL: localURL)
+        } catch {
+            print("Error saving \(name)")
+            return nil
+        }
+    }
+
+    private func process(data: Data, isGIF: Bool) -> Data {
         if isGIF {
             return data
         } else {
@@ -178,4 +157,12 @@ class SlackEmojiFileManager {
         }
     }
 
+}
+
+extension FileManager {
+    func contents(of directory: URL) -> [URL] {
+        return (try? contentsOfDirectory(at: directory,
+                                         includingPropertiesForKeys: nil,
+                                         options: .skipsHiddenFiles)) ?? []
+    }
 }

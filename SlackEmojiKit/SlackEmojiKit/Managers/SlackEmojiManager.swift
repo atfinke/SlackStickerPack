@@ -7,21 +7,38 @@
 //
 
 import Foundation
+import SafariServices
 import OAuthSwift
 
-public enum SlackFetchEmojiResult {
-    case new
-    case reloaded
-    case error
-}
-
 public class SlackEmojiManager {
+
+    // MARK: - Types
+
+    class HandlerDelegate: NSObject, SFSafariViewControllerDelegate {
+
+        var authenticationResult: ((AuthenticationResult) -> Void)?
+
+        // MARK: - SFSafariViewControllerDelegate
+
+        public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+            authenticationResult?(.cancelled)
+        }
+    }
 
     // MARK: - Properties
 
     private let auth: OAuth2Swift
     private let decoder = JSONDecoder()
+
+    //swiftlint:disable:next weak_delegate
+    private let handlerDelegate = HandlerDelegate()
+
+    private var model: SlackEmojiModel
     private let fileManager = SlackEmojiFileManager()
+
+    public var workspaces: [Workspace] {
+        return model.workspaces
+    }
 
     // MARK: - Initalization
 
@@ -33,58 +50,71 @@ public class SlackEmojiManager {
             accessTokenUrl: "https://slack.com/api/oauth.access",
             responseType:   "token"
         )
+
+        do {
+            let modelData = try Data(contentsOf: fileManager.savedModelURL)
+            model = SlackEmojiModel(data: modelData)
+        } catch {
+            model = SlackEmojiModel(data: nil)
+        }
     }
 
     public static func handle(url: URL) {
         OAuthSwift.handle(url: url)
     }
 
-    public func savedEmojis() -> [SlackTeamEmojis] {
-        return fileManager.fetchSavedEmojis()
+    public func remove(at index: Int) {
+        let workspace = model.remove(at: index)
+        model.save(to: fileManager.savedModelURL)
+        fileManager.remove(team: workspace.team)
     }
 
     // MARK: - Fetch
 
-    public func fetchEmoji(from controller: UIViewController, completion: @escaping ((SlackFetchEmojiResult) -> Void)) {
-        print(#function)
-        auth.authorizeURLHandler = SafariURLHandler(viewController: controller, oauthSwift: auth)
+    public func authenticateAndFetch(from controller: UIViewController,
+                                     authenticationResult: @escaping ((AuthenticationResult) -> Void),
+                                     fetchResult: @escaping ((FetchEmojiResult) -> Void)) {
+
+        let handler = SafariURLHandler(viewController: controller, oauthSwift: auth)
+        handler.delegate = handlerDelegate
+        handlerDelegate.authenticationResult = authenticationResult
+        auth.authorizeURLHandler = handler
 
         auth.authorize(withCallbackURL: "slack-stickers://oauth-callback/ios",
                        scope: "emoji:read",
                        state: "SlackStickers",
                        success: { (_, response, _) in
-                        self.authenticated(response: response, completion: completion)
-        }) { (error) in
-            completion(.error)
+
+                        if let data = response?.data, let team = try? self.decoder.decode(Team.self, from: data) {
+                            authenticationResult(.success)
+                            self.startFetching(team: team, fetchResult: fetchResult)
+                        } else {
+                            authenticationResult(.error)
+                        }
+        }) { _ in
+            authenticationResult(.error)
         }
     }
 
-    private func authenticated(response: OAuthSwiftResponse?, completion: @escaping ((SlackFetchEmojiResult) -> Void)) {
-        print(#function)
-        guard let data = response?.data,
-            let workspaceResponse = try? self.decoder.decode(WorkspaceResponse.self, from: data) else {
-                completion(.error)
+    private func startFetching(team: Team, fetchResult: @escaping ((FetchEmojiResult) -> Void)) {
+        self.fetchEmojiResponse { emojiResponse in
+            guard let emojiResponse = emojiResponse else {
+                fetchResult(.error)
                 return
-        }
-
-        self.fetchEmoji(completion: { (emojiResponse) in
-            if let emojiResponse = emojiResponse {
-                let workspaceEmojiResponse = WorkspaceEmojiResponse(workspace: workspaceResponse,
-                                                                    emojiResponse: emojiResponse)
-
-                self.fileManager.save(workspaceEmojiResponse: workspaceEmojiResponse,
-                                      completion: completion)
-            } else {
-                completion(.error)
             }
-        })
+
+            self.fileManager.download(emoji: emojiResponse, for: team) { workspace in
+                let result = self.model.update(workspace: workspace)
+                self.model.save(to: self.fileManager.savedModelURL)
+                fetchResult(result)
+            }
+        }
     }
 
-    private func fetchEmoji(completion: @escaping ((EmojiResponse?) -> Void)) {
-        print(#function)
-        let _ = auth.client.get("https://slack.com/api/emoji.list", success: { response in
+    private func fetchEmojiResponse(completion: @escaping ((EmojiResponse?) -> Void)) {
+        _ = auth.client.get("https://slack.com/api/emoji.list", success: { response in
             completion(try? self.decoder.decode(EmojiResponse.self, from: response.data))
-        }, failure: { (error) in
+        }, failure: { _ in
             completion(nil)
         })
     }

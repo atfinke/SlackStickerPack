@@ -8,12 +8,7 @@
 
 import Foundation
 
-public struct SlackEmoji {
+public struct SlackEmoji: Codable {
     public let name: String
-    public let url: URL
-}
-
-public struct SlackTeamEmojis {
-    public let teamName: String
-    public let emojis: [SlackEmoji]
+    public let fileURL: URL
 }
