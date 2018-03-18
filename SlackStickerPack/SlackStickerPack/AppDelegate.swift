@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
-//  SlackAPI Demo
+//  SlackStickerPack
 //
 //  Created by Andrew Finke on 3/17/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
 //
 
 import UIKit
-import OAuthSwift
+import SlackEmojiKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         if (url.host == "oauth-callback") {
-            OAuthSwift.handle(url: url)
+            SlackEmojiManager.handle(url: url)
         }
         return true
     }

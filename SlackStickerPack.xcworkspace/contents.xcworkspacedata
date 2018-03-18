@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SlackAPI Demo/SlackAPI Demo.xcodeproj">
+      location = "group:SlackStickerPack/SlackStickerPack.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SlackEmojiKit/SlackEmojiKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:OAuthSwift/OAuthSwift.xcodeproj">

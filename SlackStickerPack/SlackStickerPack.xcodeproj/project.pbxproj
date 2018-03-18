@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14C4B0C9205E155F004EC39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0C8205E155F004EC39E /* AppDelegate.swift */; };
+		14C4B0CB205E155F004EC39E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0CA205E155F004EC39E /* ViewController.swift */; };
+		14C4B0CE205E155F004EC39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B0CC205E155F004EC39E /* Main.storyboard */; };
+		14C4B0D0205E155F004EC39E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B0CF205E155F004EC39E /* Assets.xcassets */; };
+		14C4B0D3205E155F004EC39E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B0D1205E155F004EC39E /* LaunchScreen.storyboard */; };
+		14C4B0FB205E177F004EC39E /* SlackEmojiKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B0F5205E1652004EC39E /* SlackEmojiKit.framework */; };
+		14C4B0FC205E177F004EC39E /* SlackEmojiKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B0F5205E1652004EC39E /* SlackEmojiKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C4B11F205E1938004EC39E /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B118205E1872004EC39E /* OAuthSwift.framework */; };
+		14C4B120205E1938004EC39E /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B118205E1872004EC39E /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C4B12A205E1A62004EC39E /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B129205E1A62004EC39E /* Messages.framework */; };
+		14C4B12D205E1A62004EC39E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B12C205E1A62004EC39E /* MessagesViewController.swift */; };
+		14C4B130205E1A62004EC39E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B12E205E1A62004EC39E /* MainInterface.storyboard */; };
+		14C4B132205E1A62004EC39E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B131205E1A62004EC39E /* Assets.xcassets */; };
+		14C4B136205E1A62004EC39E /* Message.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14C4B128205E1A62004EC39E /* Message.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		14C4B13C205E1A82004EC39E /* SlackEmojiKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B0F5205E1652004EC39E /* SlackEmojiKit.framework */; };
+		14C4B13E205E2397004EC39E /* 50096a1020.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B13D205E2397004EC39E /* 50096a1020.gif */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14C4B0F4205E1652004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14C4B087205E14F1004EC39E;
+			remoteInfo = SlackEmojiKit;
+		};
+		14C4B0F6205E165A004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14C4B086205E14F1004EC39E;
+			remoteInfo = SlackEmojiKit;
+		};
+		14C4B0FD205E177F004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14C4B086205E14F1004EC39E;
+			remoteInfo = SlackEmojiKit;
+		};
+		14C4B117205E1872004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F435027A1A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+		14C4B11B205E189D004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+		14C4B121205E1938004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+		14C4B134205E1A62004EC39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14C4B0BD205E155F004EC39E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14C4B127205E1A62004EC39E;
+			remoteInfo = Message;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14C4B0EE205E161F004EC39E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14C4B120205E1938004EC39E /* OAuthSwift.framework in Embed Frameworks */,
+				14C4B0FC205E177F004EC39E /* SlackEmojiKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14C4B13A205E1A62004EC39E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				14C4B136205E1A62004EC39E /* Message.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		14C4B0C5205E155F004EC39E /* SlackStickerPack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackStickerPack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14C4B0C8205E155F004EC39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14C4B0CA205E155F004EC39E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14C4B0CD205E155F004EC39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14C4B0CF205E155F004EC39E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14C4B0D2205E155F004EC39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14C4B0D4205E155F004EC39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SlackEmojiKit.xcodeproj; path = ../../SlackEmojiKit/SlackEmojiKit.xcodeproj; sourceTree = "<group>"; };
+		14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = ../../OAuthSwift/OAuthSwift.xcodeproj; sourceTree = "<group>"; };
+		14C4B123205E1967004EC39E /* SlackStickerPack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlackStickerPack.entitlements; sourceTree = "<group>"; };
+		14C4B128205E1A62004EC39E /* Message.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Message.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		14C4B129205E1A62004EC39E /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		14C4B12C205E1A62004EC39E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		14C4B12F205E1A62004EC39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		14C4B131205E1A62004EC39E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14C4B133205E1A62004EC39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14C4B13B205E1A73004EC39E /* Message.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Message.entitlements; sourceTree = "<group>"; };
+		14C4B13D205E2397004EC39E /* 50096a1020.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 50096a1020.gif; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14C4B0C2205E155F004EC39E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C4B0FB205E177F004EC39E /* SlackEmojiKit.framework in Frameworks */,
+				14C4B11F205E1938004EC39E /* OAuthSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14C4B125205E1A62004EC39E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C4B13C205E1A82004EC39E /* SlackEmojiKit.framework in Frameworks */,
+				14C4B12A205E1A62004EC39E /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14C4B0BC205E155F004EC39E = {
+			isa = PBXGroup;
+			children = (
+				14C4B0C7205E155F004EC39E /* SlackStickerPack */,
+				14C4B12B205E1A62004EC39E /* Message */,
+				14C4B0C6205E155F004EC39E /* Products */,
+				14C4B11D205E18C0004EC39E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		14C4B0C6205E155F004EC39E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14C4B0C5205E155F004EC39E /* SlackStickerPack.app */,
+				14C4B128205E1A62004EC39E /* Message.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14C4B0C7205E155F004EC39E /* SlackStickerPack */ = {
+			isa = PBXGroup;
+			children = (
+				14C4B123205E1967004EC39E /* SlackStickerPack.entitlements */,
+				14C4B0C8205E155F004EC39E /* AppDelegate.swift */,
+				14C4B0CA205E155F004EC39E /* ViewController.swift */,
+				14C4B13D205E2397004EC39E /* 50096a1020.gif */,
+				14C4B0CC205E155F004EC39E /* Main.storyboard */,
+				14C4B0CF205E155F004EC39E /* Assets.xcassets */,
+				14C4B0D1205E155F004EC39E /* LaunchScreen.storyboard */,
+				14C4B0D4205E155F004EC39E /* Info.plist */,
+				14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */,
+				14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */,
+			);
+			path = SlackStickerPack;
+			sourceTree = "<group>";
+		};
+		14C4B0F1205E1652004EC39E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14C4B0F5205E1652004EC39E /* SlackEmojiKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14C4B114205E1872004EC39E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14C4B118205E1872004EC39E /* OAuthSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14C4B11D205E18C0004EC39E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14C4B129205E1A62004EC39E /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14C4B12B205E1A62004EC39E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				14C4B13B205E1A73004EC39E /* Message.entitlements */,
+				14C4B12C205E1A62004EC39E /* MessagesViewController.swift */,
+				14C4B12E205E1A62004EC39E /* MainInterface.storyboard */,
+				14C4B131205E1A62004EC39E /* Assets.xcassets */,
+				14C4B133205E1A62004EC39E /* Info.plist */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14C4B0C4205E155F004EC39E /* SlackStickerPack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14C4B0D7205E155F004EC39E /* Build configuration list for PBXNativeTarget "SlackStickerPack" */;
+			buildPhases = (
+				14C4B0C1205E155F004EC39E /* Sources */,
+				14C4B0C2205E155F004EC39E /* Frameworks */,
+				14C4B0C3205E155F004EC39E /* Resources */,
+				14C4B0EE205E161F004EC39E /* Embed Frameworks */,
+				14C4B13A205E1A62004EC39E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14C4B11C205E189D004EC39E /* PBXTargetDependency */,
+				14C4B0F7205E165A004EC39E /* PBXTargetDependency */,
+				14C4B0FE205E177F004EC39E /* PBXTargetDependency */,
+				14C4B122205E1938004EC39E /* PBXTargetDependency */,
+				14C4B135205E1A62004EC39E /* PBXTargetDependency */,
+			);
+			name = SlackStickerPack;
+			productName = SlackStickerPack;
+			productReference = 14C4B0C5205E155F004EC39E /* SlackStickerPack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		14C4B127205E1A62004EC39E /* Message */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14C4B137205E1A62004EC39E /* Build configuration list for PBXNativeTarget "Message" */;
+			buildPhases = (
+				14C4B124205E1A62004EC39E /* Sources */,
+				14C4B125205E1A62004EC39E /* Frameworks */,
+				14C4B126205E1A62004EC39E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Message;
+			productName = Message;
+			productReference = 14C4B128205E1A62004EC39E /* Message.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14C4B0BD205E155F004EC39E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Andrew Finke";
+				TargetAttributes = {
+					14C4B0C4205E155F004EC39E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					14C4B127205E1A62004EC39E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 14C4B0C0205E155F004EC39E /* Build configuration list for PBXProject "SlackStickerPack" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 14C4B0BC205E155F004EC39E;
+			productRefGroup = 14C4B0C6205E155F004EC39E /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 14C4B114205E1872004EC39E /* Products */;
+					ProjectRef = 14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = 14C4B0F1205E1652004EC39E /* Products */;
+					ProjectRef = 14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				14C4B0C4205E155F004EC39E /* SlackStickerPack */,
+				14C4B127205E1A62004EC39E /* Message */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		14C4B0F5205E1652004EC39E /* SlackEmojiKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SlackEmojiKit.framework;
+			remoteRef = 14C4B0F4205E1652004EC39E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		14C4B118205E1872004EC39E /* OAuthSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthSwift.framework;
+			remoteRef = 14C4B117205E1872004EC39E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14C4B0C3205E155F004EC39E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C4B0D3205E155F004EC39E /* LaunchScreen.storyboard in Resources */,
+				14C4B0D0205E155F004EC39E /* Assets.xcassets in Resources */,
+				14C4B13E205E2397004EC39E /* 50096a1020.gif in Resources */,
+				14C4B0CE205E155F004EC39E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14C4B126205E1A62004EC39E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C4B132205E1A62004EC39E /* Assets.xcassets in Resources */,
+				14C4B130205E1A62004EC39E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14C4B0C1205E155F004EC39E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C4B0CB205E155F004EC39E /* ViewController.swift in Sources */,
+				14C4B0C9205E155F004EC39E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14C4B124205E1A62004EC39E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C4B12D205E1A62004EC39E /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14C4B0F7205E165A004EC39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SlackEmojiKit;
+			targetProxy = 14C4B0F6205E165A004EC39E /* PBXContainerItemProxy */;
+		};
+		14C4B0FE205E177F004EC39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SlackEmojiKit;
+			targetProxy = 14C4B0FD205E177F004EC39E /* PBXContainerItemProxy */;
+		};
+		14C4B11C205E189D004EC39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = 14C4B11B205E189D004EC39E /* PBXContainerItemProxy */;
+		};
+		14C4B122205E1938004EC39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = 14C4B121205E1938004EC39E /* PBXContainerItemProxy */;
+		};
+		14C4B135205E1A62004EC39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14C4B127205E1A62004EC39E /* Message */;
+			targetProxy = 14C4B134205E1A62004EC39E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		14C4B0CC205E155F004EC39E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14C4B0CD205E155F004EC39E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		14C4B0D1205E155F004EC39E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14C4B0D2205E155F004EC39E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		14C4B12E205E1A62004EC39E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14C4B12F205E1A62004EC39E /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		14C4B0D5205E155F004EC39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		14C4B0D6205E155F004EC39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14C4B0D8205E155F004EC39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SlackStickerPack/SlackStickerPack.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72S993BNAV;
+				INFOPLIST_FILE = SlackStickerPack/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14C4B0D9205E155F004EC39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SlackStickerPack/SlackStickerPack.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72S993BNAV;
+				INFOPLIST_FILE = SlackStickerPack/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		14C4B138205E1A62004EC39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = Message/Message.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72S993BNAV;
+				INFOPLIST_FILE = Message/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack.Message;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14C4B139205E1A62004EC39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = Message/Message.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72S993BNAV;
+				INFOPLIST_FILE = Message/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack.Message;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14C4B0C0205E155F004EC39E /* Build configuration list for PBXProject "SlackStickerPack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14C4B0D5205E155F004EC39E /* Debug */,
+				14C4B0D6205E155F004EC39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14C4B0D7205E155F004EC39E /* Build configuration list for PBXNativeTarget "SlackStickerPack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14C4B0D8205E155F004EC39E /* Debug */,
+				14C4B0D9205E155F004EC39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14C4B137205E1A62004EC39E /* Build configuration list for PBXNativeTarget "Message" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14C4B138205E1A62004EC39E /* Debug */,
+				14C4B139205E1A62004EC39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14C4B0BD205E155F004EC39E /* Project object */;
+}
