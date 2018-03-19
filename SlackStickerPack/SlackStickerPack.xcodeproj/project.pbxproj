@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		148A5F4A205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F48205F85AE00B7AE87 /* Crashlytics.framework */; };
+		148A5F4B205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F48205F85AE00B7AE87 /* Crashlytics.framework */; };
+		148A5F4C205F85AF00B7AE87 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F49205F85AF00B7AE87 /* Fabric.framework */; };
+		148A5F4D205F85AF00B7AE87 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F49205F85AF00B7AE87 /* Fabric.framework */; };
+		148A5F52205F862E00B7AE87 /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 148A5F50205F862E00B7AE87 /* fabric.apikey */; };
+		148A5F53205F862E00B7AE87 /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 148A5F50205F862E00B7AE87 /* fabric.apikey */; };
+		148A5F58205F86B200B7AE87 /* StickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A5F57205F86B200B7AE87 /* StickerCell.swift */; };
+		148A5F59205F86B200B7AE87 /* StickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A5F57205F86B200B7AE87 /* StickerCell.swift */; };
+		148A5F5B205F86B800B7AE87 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A5F5A205F86B800B7AE87 /* HeaderCell.swift */; };
+		148A5F5C205F86B800B7AE87 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A5F5A205F86B800B7AE87 /* HeaderCell.swift */; };
 		14C4B0C9205E155F004EC39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0C8205E155F004EC39E /* AppDelegate.swift */; };
 		14C4B0CE205E155F004EC39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B0CC205E155F004EC39E /* Main.storyboard */; };
 		14C4B0D0205E155F004EC39E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C4B0CF205E155F004EC39E /* Assets.xcassets */; };
@@ -103,6 +113,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		148A5F48205F85AE00B7AE87 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		148A5F49205F85AF00B7AE87 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		148A5F50205F862E00B7AE87 /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = SOURCE_ROOT; };
+		148A5F51205F862E00B7AE87 /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = SOURCE_ROOT; };
+		148A5F57205F86B200B7AE87 /* StickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerCell.swift; sourceTree = "<group>"; };
+		148A5F5A205F86B800B7AE87 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		14C4B0C5205E155F004EC39E /* SlackStickerPack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackStickerPack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4B0C8205E155F004EC39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C4B0CD205E155F004EC39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C4B0FB205E177F004EC39E /* SlackEmojiKit.framework in Frameworks */,
+				148A5F4A205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */,
 				14C4B11F205E1938004EC39E /* OAuthSwift.framework in Frameworks */,
+				148A5F4C205F85AF00B7AE87 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C4B13C205E1A82004EC39E /* SlackEmojiKit.framework in Frameworks */,
+				148A5F4B205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */,
 				14C4B12A205E1A62004EC39E /* Messages.framework in Frameworks */,
+				148A5F4D205F85AF00B7AE87 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +193,10 @@
 				14C4B0CF205E155F004EC39E /* Assets.xcassets */,
 				14C4B0D1205E155F004EC39E /* LaunchScreen.storyboard */,
 				14C4B0D4205E155F004EC39E /* Info.plist */,
+				148A5F50205F862E00B7AE87 /* fabric.apikey */,
+				148A5F51205F862E00B7AE87 /* fabric.buildsecret */,
+				148A5F48205F85AE00B7AE87 /* Crashlytics.framework */,
+				148A5F49205F85AF00B7AE87 /* Fabric.framework */,
 				14C4B113205E1872004EC39E /* OAuthSwift.xcodeproj */,
 				14C4B0F0205E1652004EC39E /* SlackEmojiKit.xcodeproj */,
 			);
@@ -207,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				14C4B13B205E1A73004EC39E /* Message.entitlements */,
+				148A5F5A205F86B800B7AE87 /* HeaderCell.swift */,
+				148A5F57205F86B200B7AE87 /* StickerCell.swift */,
 				14C4B12C205E1A62004EC39E /* MessagesViewController.swift */,
 				14C4B12E205E1A62004EC39E /* MainInterface.storyboard */,
 				14C4B131205E1A62004EC39E /* Assets.xcassets */,
@@ -229,6 +255,7 @@
 				14C4B0EE205E161F004EC39E /* Embed Frameworks */,
 				14C4B13A205E1A62004EC39E /* Embed App Extensions */,
 				14C4B14A205F08DD004EC39E /* Swiftlint */,
+				148A5F56205F864800B7AE87 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -248,11 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14C4B137205E1A62004EC39E /* Build configuration list for PBXNativeTarget "Message" */;
 			buildPhases = (
-				14C4B14E205F091E004EC39E /* Build Number */,
 				14C4B124205E1A62004EC39E /* Sources */,
 				14C4B125205E1A62004EC39E /* Frameworks */,
 				14C4B126205E1A62004EC39E /* Resources */,
 				14C4B14B205F08F2004EC39E /* Swiftlint */,
+				148A5F47205F858F00B7AE87 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -345,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C4B0D3205E155F004EC39E /* LaunchScreen.storyboard in Resources */,
+				148A5F52205F862E00B7AE87 /* fabric.apikey in Resources */,
 				14C4B0D0205E155F004EC39E /* Assets.xcassets in Resources */,
 				14C4B0CE205E155F004EC39E /* Main.storyboard in Resources */,
 			);
@@ -354,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148A5F53205F862E00B7AE87 /* fabric.apikey in Resources */,
 				14C4B132205E1A62004EC39E /* Assets.xcassets in Resources */,
 				14C4B130205E1A62004EC39E /* MainInterface.storyboard in Resources */,
 			);
@@ -362,6 +391,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		148A5F47205F858F00B7AE87 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/fabric.buildsecret\"\n\nif test ! -f \"$FABRIC_APIKEY_FILE\" -o ! -f \"$FABRIC_BUILDSECRET_FILE\"; then\necho \"This build wants to upload dSYM files to Crashlytics.\"\necho \"Uploading is possible only if a Fabric API key and a Fabric build secret are\"\necho \"available. This build is failing because at least one of these pieces of\"\necho \"information is missing.\"\necho \"\"\necho \"To fix the problem, create the following files and store the API key and\"\necho \"build secret, respectively, within those files:\"\necho \"\"\necho \"  $FABRIC_APIKEY_FILE\"\necho \"  $FABRIC_BUILDSECRET_FILE\"\necho \"\"\necho \"If you forked the project then you must register with Crashlytics and\"\necho \"get your own API key and build secret.\"\n\n# Let the build fail\nexit 1\nfi\n\nFABRIC_APIKEY=$(cat \"$FABRIC_APIKEY_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_APIKEY_FILE\"\nexit 1\nfi\n\nFABRIC_BUILDSECRET=$(cat \"$FABRIC_BUILDSECRET_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_BUILDSECRET_FILE\"\nexit 1\nfi\n\necho \"Uploading dSYM files to Crashlytics\"\n\"./Fabric.framework/run\" \"$FABRIC_APIKEY\" \"$FABRIC_BUILDSECRET\"";
+		};
+		148A5F56205F864800B7AE87 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/fabric.buildsecret\"\n\nif test ! -f \"$FABRIC_APIKEY_FILE\" -o ! -f \"$FABRIC_BUILDSECRET_FILE\"; then\necho \"This build wants to upload dSYM files to Crashlytics.\"\necho \"Uploading is possible only if a Fabric API key and a Fabric build secret are\"\necho \"available. This build is failing because at least one of these pieces of\"\necho \"information is missing.\"\necho \"\"\necho \"To fix the problem, create the following files and store the API key and\"\necho \"build secret, respectively, within those files:\"\necho \"\"\necho \"  $FABRIC_APIKEY_FILE\"\necho \"  $FABRIC_BUILDSECRET_FILE\"\necho \"\"\necho \"If you forked the project then you must register with Crashlytics and\"\necho \"get your own API key and build secret.\"\n\n# Let the build fail\nexit 1\nfi\n\nFABRIC_APIKEY=$(cat \"$FABRIC_APIKEY_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_APIKEY_FILE\"\nexit 1\nfi\n\nFABRIC_BUILDSECRET=$(cat \"$FABRIC_BUILDSECRET_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_BUILDSECRET_FILE\"\nexit 1\nfi\n\necho \"Uploading dSYM files to Crashlytics\"\n\"./Fabric.framework/run\" \"$FABRIC_APIKEY\" \"$FABRIC_BUILDSECRET\"";
+		};
 		14C4B149205F08CB004EC39E /* Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,20 +461,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		14C4B14E205F091E004EC39E /* Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build Number";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -425,7 +468,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148A5F5B205F86B800B7AE87 /* HeaderCell.swift in Sources */,
 				14C4B0C9205E155F004EC39E /* AppDelegate.swift in Sources */,
+				148A5F58205F86B200B7AE87 /* StickerCell.swift in Sources */,
 				14C4B140205EA9A4004EC39E /* TeamTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +480,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C4B12D205E1A62004EC39E /* MessagesViewController.swift in Sources */,
+				148A5F5C205F86B800B7AE87 /* HeaderCell.swift in Sources */,
+				148A5F59205F86B200B7AE87 /* StickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +658,10 @@
 				CODE_SIGN_ENTITLEMENTS = SlackStickerPack/SlackStickerPack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SlackStickerPack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack;
@@ -628,6 +679,10 @@
 				CODE_SIGN_ENTITLEMENTS = SlackStickerPack/SlackStickerPack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SlackStickerPack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack;
@@ -644,6 +699,10 @@
 				CODE_SIGN_ENTITLEMENTS = Message/Message.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Message/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack.Message;
@@ -661,6 +720,10 @@
 				CODE_SIGN_ENTITLEMENTS = Message/Message.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Message/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewfinke.SlackStickerPack.Message;

@@ -69,3 +69,7 @@ fastlane/test_output
 SlackAPI Demo/SlackAPI Demo/Secrets.swift
 
 SlackEmojiKit/SlackEmojiKit/Other/Secrets.swift
+
+SlackStickerPack/fabric.apikey
+
+SlackStickerPack/fabric.buildsecret

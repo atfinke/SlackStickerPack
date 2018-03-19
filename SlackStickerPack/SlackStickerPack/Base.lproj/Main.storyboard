@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Installed Packs-->
+        <!--Slack Packs-->
         <scene sceneID="H3t-OV-WzF">
             <objects>
                 <tableViewController id="jD2-Zk-txk" customClass="TeamTableViewController" customModule="SlackStickerPack" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="jD2-Zk-txk" id="2Ss-4A-FMs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Installed Packs" id="SXX-Nb-U1O">
+                    <navigationItem key="navigationItem" title="Slack Packs" id="SXX-Nb-U1O">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t2N-8A-gbp">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -76,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6m-ad-YQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="-4"/>
+            <point key="canvasLocation" x="670" y="-4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fGV-jy-ylz">

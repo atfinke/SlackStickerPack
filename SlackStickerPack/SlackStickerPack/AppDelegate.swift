@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 import SlackEmojiKit
 
 @UIApplicationMain
@@ -16,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        guard let url = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil),
+            let key = try? String(contentsOf: url).replacingOccurrences(of: "\n", with: "") else {
+                fatalError("Failed to get API keys")
+        }
+        Crashlytics.start(withAPIKey: key)
 
         UINavigationBar.appearance().titleTextAttributes = [
             .foregroundColor: UIColor.white

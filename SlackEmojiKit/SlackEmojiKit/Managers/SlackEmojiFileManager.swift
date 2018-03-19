@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreImage
-import MobileCoreServices
 
 class SlackEmojiFileManager {
 
@@ -16,6 +15,7 @@ class SlackEmojiFileManager {
 
     private let documentDirectory: URL
     private let fileManager = FileManager.default
+    private let context = CIContext(options: [kCIContextUseSoftwareRenderer: false])
 
     private var defaults: UserDefaults {
         return UserDefaults(suiteName: "group.com.andrewfinke.test")!
@@ -33,7 +33,7 @@ class SlackEmojiFileManager {
 
     init() {
         guard let directory = fileManager
-            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.andrewfinke.test") else {
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.andrewfinke.SlackStickerPack") else {
             fatalError()
         }
         documentDirectory = directory
@@ -97,6 +97,7 @@ class SlackEmojiFileManager {
                 let task = URLSession.shared.dataTask(with: emojiRemoteURL, completionHandler: { (data, _, _) in
                     let fileName = emojiName + "." + emojiRemoteURL.pathExtension
                     let emojiLocalURL = workspaceDirectory.appendingPathComponent(fileName)
+
                     let emoji = self.saveEmoji(with: data, named: fileName, to: emojiLocalURL, from: emojiRemoteURL)
                     workspaceEmojis.append(emoji)
                     operation.state = .isFinished
@@ -130,28 +131,68 @@ class SlackEmojiFileManager {
 
     private func process(data: Data, isGIF: Bool) -> Data {
         if isGIF {
-            return data
+//            guard let source = CGImageSourceCreateWithData(data as CFData, nil),
+//                let sourceProperties = CGImageSourceCopyProperties(source, nil) else {
+//                fatalError()
+//            }
+//
+//            let frameCount = CGImageSourceGetCount(source)
+//            let data = NSMutableData()
+//
+//            guard let destination =  CGImageDestinationCreateWithData(data as CFMutableData,
+//                                                                      kUTTypeGIF,
+//                                                                      frameCount,
+//                                                                      nil) else {
+//                    fatalError()
+//            }
+//            CGImageDestinationSetProperties(destination, sourceProperties)
+//
+//            for imageIndex in 0..<frameCount {
+//
+//                guard let frameImage = CGImageSourceCreateImageAtIndex(source, imageIndex, nil),
+//                    var frameProperties = ... as? [String: Any] else {
+//                        continue
+//                }
+//
+//                let image = CIImage(cgImage: frameImage)
+//                scaleFilter.setValue(image, forKey: "inputImage")
+//                guard let outputImage = scaleFilter.value(forKey: "outputImage") as? CIImage,
+//                    let newImage = context.createCGImage(outputImage, from: outputImage.extent ) else {
+//                    fatalError()
+//                }
+//
+//                frameProperties["PixelWidth"] = newImage.width
+//                frameProperties["PixelHeight"] = newImage.height
+//                frameProperties[kCGImageDestinationLossyCompressionQuality as String] = 0.0
+//
+//                CGImageDestinationAddImage(destination, newImage, frameProperties as CFDictionary)
+//            }
+//
+//            guard CGImageDestinationFinalize(destination) else {
+//                fatalError()
+//            }
+
+            return data as Data
         } else {
             guard let image = CIImage(data: data) else {
                 fatalError()
             }
 
             let filter = CIFilter(name: "CILanczosScaleTransform")!
-            filter.setValue(image, forKey: "inputImage")
-            filter.setValue(1.25, forKey: "inputScale")
+            filter.setValue(2.0, forKey: "inputScale")
             filter.setValue(1.0, forKey: "inputAspectRatio")
+            filter.setValue(image, forKey: "inputImage")
 
             guard let outputImage = filter.value(forKey: "outputImage") as? CIImage,
                 let colorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear) else {
                     fatalError()
             }
 
-            guard let data = CIContext(options: [kCIContextUseSoftwareRenderer: false])
-                .pngRepresentation(of: outputImage,
-                                   format: kCIFormatRGBA8,
-                                   colorSpace:colorSpace,
-                                   options: [:]) else {
-                                    fatalError()
+            guard let data = context.pngRepresentation(of: outputImage,
+                                                       format: kCIFormatRGBA8,
+                                                       colorSpace: colorSpace,
+                                                       options: [:]) else {
+                                                        fatalError()
             }
             return data
         }

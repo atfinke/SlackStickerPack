@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 import SlackEmojiKit
 
 class TeamTableViewController: UITableViewController {
@@ -71,8 +72,9 @@ class TeamTableViewController: UITableViewController {
     // MARK: - Adding Packs
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        let addButton = sender as? UIBarButtonItem
-        addButton?.isEnabled = false
+        guard let addButton = sender as? UIBarButtonItem else { fatalError() }
+        addButton.isEnabled = false
+        Answers.logCustomEvent(withName: "App-addButtonPressed", customAttributes: nil)
 
         let lastIndex = IndexPath(row: self.emojiManager.workspaces.count, section: 0)
         emojiManager.authenticateAndFetch(from: self, authenticationResult: { result in
@@ -84,18 +86,21 @@ class TeamTableViewController: UITableViewController {
                     self.isDownloading = true
                     self.tableView.insertRows(at: [lastIndex], with: .top)
                 }
+                Answers.logCustomEvent(withName: "App-auth-success", customAttributes: nil)
             case .cancelled:
-                addButton?.isEnabled = true
+                addButton.isEnabled = true
+                Answers.logCustomEvent(withName: "App-auth-cancelled", customAttributes: nil)
             case .error:
-                addButton?.isEnabled = true
+                addButton.isEnabled = true
                 self.presentError()
+                Answers.logCustomEvent(withName: "App-auth-error", customAttributes: nil)
             }
 
         }, fetchResult: { result in
 
             DispatchQueue.main.async {
                 self.isDownloading = false
-                addButton?.isEnabled = true
+                addButton.isEnabled = true
 
                 self.tableView.performBatchUpdates ({
                     switch result {
@@ -103,12 +108,15 @@ class TeamTableViewController: UITableViewController {
                     case .new(let index):
                         self.tableView.deleteRows(at: [lastIndex], with: .top)
                         self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .left)
+                        Answers.logCustomEvent(withName: "App-fetch-new", customAttributes: nil)
                     case .reloaded(let index):
                         self.tableView.deleteRows(at: [lastIndex], with: .top)
                         self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+                        Answers.logCustomEvent(withName: "App-fetch-reloaded", customAttributes: nil)
                     case .error:
                         self.presentError()
                         self.tableView.deleteRows(at: [lastIndex], with: .fade)
+                        Answers.logCustomEvent(withName: "App-fetch-success", customAttributes: nil)
                     }
 
                 }, completion: nil)
