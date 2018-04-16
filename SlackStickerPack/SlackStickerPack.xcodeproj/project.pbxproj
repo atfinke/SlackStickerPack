@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142DF0A9208526050091B668 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1468D90B2085231B00C60774 /* OAuthSwift.framework */; };
+		142DF0AA208526050091B668 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1468D90B2085231B00C60774 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		148A5F4A205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F48205F85AE00B7AE87 /* Crashlytics.framework */; };
 		148A5F4B205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F48205F85AE00B7AE87 /* Crashlytics.framework */; };
 		148A5F4C205F85AF00B7AE87 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5F49205F85AF00B7AE87 /* Fabric.framework */; };
@@ -33,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		142DF0AB208526050091B668 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1468D9002085231B00C60774 /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
 		1468D90A2085231B00C60774 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1468D9002085231B00C60774 /* OAuthSwift.xcodeproj */;
@@ -119,6 +128,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				142DF0AA208526050091B668 /* OAuthSwift.framework in Embed Frameworks */,
 				14C4B0FC205E177F004EC39E /* SlackEmojiKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -170,6 +180,7 @@
 			files = (
 				14C4B0FB205E177F004EC39E /* SlackEmojiKit.framework in Frameworks */,
 				148A5F4A205F85AF00B7AE87 /* Crashlytics.framework in Frameworks */,
+				142DF0A9208526050091B668 /* OAuthSwift.framework in Frameworks */,
 				148A5F4C205F85AF00B7AE87 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +304,7 @@
 				14C4B0F7205E165A004EC39E /* PBXTargetDependency */,
 				14C4B0FE205E177F004EC39E /* PBXTargetDependency */,
 				14C4B135205E1A62004EC39E /* PBXTargetDependency */,
+				142DF0AC208526050091B668 /* PBXTargetDependency */,
 			);
 			name = SlackStickerPack;
 			productName = SlackStickerPack;
@@ -558,6 +570,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		142DF0AC208526050091B668 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = 142DF0AB208526050091B668 /* PBXContainerItemProxy */;
+		};
 		14C4B0F7205E165A004EC39E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SlackEmojiKit;

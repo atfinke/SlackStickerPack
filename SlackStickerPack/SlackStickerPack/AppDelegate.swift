@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
 
         if url.host == "oauth-callback" {
             SlackEmojiManager.handle(url: url)
