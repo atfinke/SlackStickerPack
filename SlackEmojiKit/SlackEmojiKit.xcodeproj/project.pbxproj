@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1468D9192085237500C60774 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468D9182085237500C60774 /* Secrets.swift */; };
 		14C4B0E1205E1577004EC39E /* SlackEmojiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0DA205E1576004EC39E /* SlackEmojiManager.swift */; };
 		14C4B0E2205E1577004EC39E /* SlackEmojiFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0DB205E1576004EC39E /* SlackEmojiFileManager.swift */; };
 		14C4B0E3205E1577004EC39E /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0DC205E1577004EC39E /* Workspace.swift */; };
 		14C4B0E4205E1577004EC39E /* EmojiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0DD205E1577004EC39E /* EmojiResponse.swift */; };
-		14C4B0E5205E1577004EC39E /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0DE205E1577004EC39E /* Secrets.swift */; };
 		14C4B0E6205E1577004EC39E /* WKROperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0DF205E1577004EC39E /* WKROperation.swift */; };
 		14C4B0E7205E1577004EC39E /* SlackEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4B0E0205E1577004EC39E /* SlackEmoji.swift */; };
 		14C4B119205E187F004EC39E /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C4B11A205E187F004EC39E /* OAuthSwift.framework */; };
@@ -21,13 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1468D9182085237500C60774 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		14C4B087205E14F1004EC39E /* SlackEmojiKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlackEmojiKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4B08B205E14F1004EC39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C4B0DA205E1576004EC39E /* SlackEmojiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackEmojiManager.swift; sourceTree = "<group>"; };
 		14C4B0DB205E1576004EC39E /* SlackEmojiFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackEmojiFileManager.swift; sourceTree = "<group>"; };
 		14C4B0DC205E1577004EC39E /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 		14C4B0DD205E1577004EC39E /* EmojiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiResponse.swift; sourceTree = "<group>"; };
-		14C4B0DE205E1577004EC39E /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		14C4B0DF205E1577004EC39E /* WKROperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKROperation.swift; sourceTree = "<group>"; };
 		14C4B0E0205E1577004EC39E /* SlackEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackEmoji.swift; sourceTree = "<group>"; };
 		14C4B0EA205E15EE004EC39E /* OAuthSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OAuthSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,8 +89,8 @@
 		14C4B0F8205E169A004EC39E /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				14C4B0DE205E1577004EC39E /* Secrets.swift */,
 				14C4B0DF205E1577004EC39E /* WKROperation.swift */,
+				1468D9182085237500C60774 /* Secrets.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -231,13 +231,13 @@
 				14C4B148205EFFC2004EC39E /* Team.swift in Sources */,
 				14C4B0E7205E1577004EC39E /* SlackEmoji.swift in Sources */,
 				14C4B0E1205E1577004EC39E /* SlackEmojiManager.swift in Sources */,
-				14C4B0E5205E1577004EC39E /* Secrets.swift in Sources */,
 				14C4B152205F0B88004EC39E /* Results.swift in Sources */,
 				14C4B146205EFB2F004EC39E /* SlackEmojiModel.swift in Sources */,
 				14C4B0E6205E1577004EC39E /* WKROperation.swift in Sources */,
 				14C4B0E4205E1577004EC39E /* EmojiResponse.swift in Sources */,
 				14C4B0E3205E1577004EC39E /* Workspace.swift in Sources */,
 				14C4B0E2205E1577004EC39E /* SlackEmojiFileManager.swift in Sources */,
+				1468D9192085237500C60774 /* Secrets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

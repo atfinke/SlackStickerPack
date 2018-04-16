@@ -8,6 +8,6 @@
       location = "group:SlackEmojiKit/SlackEmojiKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:OAuthSwift/OAuthSwift.xcodeproj">
+      location = "group:OAuthSwift-master/OAuthSwift.xcodeproj">
    </FileRef>
 </Workspace>
